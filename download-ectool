@@ -2,10 +2,10 @@
 ectoolJobId="$(cat './gitlab_job_id')"
 ectoolSha256Hash="$(cat './hash.sha256')"
 artifactsZipFile="./artifact.zip"
+echo "downloading ectool artifact"
 curl -sSo "$artifactsZipFile" -L "https://gitlab.howett.net/DHowett/ectool/-/jobs/${ectoolJobId}/artifacts/download?file_type=archive" || (echo "failed to download the artifact" && exit 1)
 echo "checking artifact sha256 sum"
 actualEctoolSha256Hash=$(sha256sum "$artifactsZipFile" | cut -d ' ' -f 1)
-echo "$actualEctoolSha256Hash"
 if [[ "$actualEctoolSha256Hash" != "$ectoolSha256Hash" ]]; then
   echo "Incorrect sha256 sum for ectool gitlab artifact '$ectoolJobId' : '$actualEctoolSha256Hash' != '$ectoolSha256Hash'"
   exit 1
