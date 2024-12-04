@@ -19,7 +19,8 @@ RELEASE="$(rpm -E %fedora)"
 # rpm-ostree install vlc
 
 git clone https://github.com/TamtamHero/fw-fanctrl.git /tmp/fw-fanctrl && \
-/tmp/fw-fanctrl/install.sh 
+cd /tmp/fw-fanctrl && \
+./install.sh 
 
 #### Example for enabling a System Unit File
 
