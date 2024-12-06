@@ -20,7 +20,7 @@ RELEASE="$(rpm -E %fedora)"
 
 git clone https://github.com/TamtamHero/fw-fanctrl.git /tmp/fw-fanctrl && \
 cd /tmp/fw-fanctrl && \
-./install.sh 
+#./install.sh 
 
 #### Example for enabling a System Unit File
 
